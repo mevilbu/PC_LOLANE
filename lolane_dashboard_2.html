@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lolane TT Store · Summary Dashboard · 1–6 Jul 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f4f4f2;--surf:#ffffff;
+  --ink0:#0b0b0b;--ink1:#3a3935;--ink2:#898781;
+  --line:#e1e0d9;--bdr:rgba(11,11,11,.09);
+  --s1:#2a78d6;--s2:#1baf7a;--s3:#eda100;
+  --s4:#008300;--s5:#4a3aa7;--s6:#e34948;
+  --s7:#e87ba4;--s8:#eb6834;
+  --good:#0ca30c;--warn:#eda100;--crit:#e34948;
+}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink0);font-size:13px;line-height:1.5}
+.hdr{background:linear-gradient(135deg,#13204b 0%,#1e3585 60%,#2a4aad 100%);color:#fff;padding:22px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hdr-left h1{font-size:19px;font-weight:700;letter-spacing:-.02em}
+.hdr-left p{font-size:11.5px;opacity:.65;margin-top:3px}
+.hdr-badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:7px;padding:7px 18px;font-size:12px;font-weight:600;white-space:nowrap}
+.page{max-width:1440px;margin:0 auto;padding:20px 20px 52px}
+.sec{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin:22px 0 10px}
+.kpi-row{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+@media(max-width:1100px){.kpi-row{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){.kpi-row{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--line));border-radius:10px 10px 0 0}
+.kpi-lbl{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi-val{font-size:24px;font-weight:700;line-height:1.2;margin-top:3px;font-variant-numeric:tabular-nums;color:var(--accent,var(--ink0))}
+.kpi-note{font-size:10.5px;color:var(--ink2);margin-top:2px;line-height:1.4}
+.a-blue{--accent:var(--s1)}.a-aqua{--accent:var(--s2)}.a-green{--accent:var(--good)}.a-violet{--accent:var(--s5)}
+hr{border:none;border-top:1px solid var(--line);margin:20px 0}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:18px 20px}
+.card-ttl{font-size:13px;font-weight:700;color:var(--ink0)}
+.card-sub{font-size:11px;color:var(--ink2);margin-top:2px;margin-bottom:14px}
+.cw{position:relative}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.g2l{display:grid;grid-template-columns:5fr 7fr;gap:14px;margin-bottom:14px}
+.g2r{display:grid;grid-template-columns:7fr 5fr;gap:14px;margin-bottom:14px}
+@media(max-width:900px){.g2,.g2l,.g2r{grid-template-columns:1fr}}
+.conv-legend{display:flex;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.conv-legend span{font-size:10.5px;color:var(--ink1);display:flex;align-items:center;gap:5px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%}
+footer{text-align:center;font-size:11px;color:var(--ink2);padding-top:12px;border-top:1px solid var(--line);margin-top:32px}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-left">
+    <h1>Lolane TT Store · Summary Dashboard</h1>
+    <p>ยอดสรุปการขายและกิจกรรมทั้งหมด &middot; ข้อมูลจาก Sheet: Summary</p>
+  </div>
+  <div class="hdr-badge">1&ndash;6 กรกฎาคม 2026</div>
+</header>
+
+<div class="page">
+
+  <div class="sec">ภาพรวมทั้งหมด</div>
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-lbl">วันทำงานรวม</div>
+      <div class="kpi-val">15</div>
+      <div class="kpi-note">จาก 16 ร้านที่มีกิจกรรม</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">ผู้เข้าร้าน</div>
+      <div class="kpi-val">1,055</div>
+      <div class="kpi-note">เช้า 458 &middot; บ่าย 597</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">Samping รวม</div>
+      <div class="kpi-val">909</div>
+      <div class="kpi-note">ครีม 446 &middot; ทรีทเม้น 463</div>
+    </div>
+    <div class="kpi a-blue">
+      <div class="kpi-lbl">ยอดขาย (บาท)</div>
+      <div class="kpi-val">74,728</div>
+      <div class="kpi-note">รวมทั้งสิ้น</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">ยอดขาย (ชิ้น)</div>
+      <div class="kpi-val">998</div>
+      <div class="kpi-note">ทุกกลุ่มสินค้า</div>
+    </div>
+    <div class="kpi a-aqua">
+      <div class="kpi-lbl">เชียร์ขาย / ซื้อ</div>
+      <div class="kpi-val">680</div>
+      <div class="kpi-note">จากเชียร์ขาย 1,088 คน</div>
+    </div>
+    <div class="kpi a-green">
+      <div class="kpi-lbl">Conversion Rate</div>
+      <div class="kpi-val">62.5%</div>
+      <div class="kpi-note">ผู้ซื้อ &divide; เชียร์ขาย</div>
+    </div>
+    <div class="kpi a-violet">
+      <div class="kpi-lbl">ลูกค้าใหม่</div>
+      <div class="kpi-val">289</div>
+      <div class="kpi-note">เก่า 391 &middot; 42% ของผู้ซื้อ</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">สัดส่วนสินค้าและยอดขายตามร้าน</div>
+  <div class="g2l">
+    <div class="card">
+      <div class="card-ttl">สัดส่วนยอดขายตามกลุ่มสินค้า</div>
+      <div class="card-sub">รวม 998 ชิ้น ทุกกลุ่มสินค้า</div>
+      <div class="cw" style="height:270px"><canvas id="cProductMix"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-ttl">ยอดขาย (บาท) ตามร้าน</div>
+      <div class="card-sub">16 ร้านที่มีกิจกรรม &middot; เรียงมากไปน้อย &middot; รวม ฿74,728</div>
+      <div class="cw" style="height:390px"><canvas id="cRevenue"></canvas></div>
+    </div>
+  </div>
+
+  <div class="sec">ผลงานตามร้านค้า</div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-ttl">จำนวนชิ้นที่ขาย ตามร้าน</div>
+      <div class="card-sub">รวม 998 ชิ้น &middot; เรียงมากไปน้อย</div>
+      <div class="cw" style="height:390px"><canvas id="cPieces"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-ttl">Conversion Rate ตามร้าน</div>
+      <div class="card-sub">คนที่ซื้อ &divide; เชียร์ขาย &middot; เฉลี่ยรวม 62.5%</div>
+      <div class="conv-legend">
+        <span><span class="dot" style="background:#0ca30c"></span>&ge;80% ดีมาก</span>
+        <span><span class="dot" style="background:#eda100"></span>60–79% ปานกลาง</span>
+        <span><span class="dot" style="background:#e34948"></span>&lt;60% ต้องปรับปรุง</span>
+      </div>
+      <div class="cw" style="height:355px"><canvas id="cConv"></canvas></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">รายละเอียดสินค้าและลูกค้า</div>
+  <div class="g2r">
+    <div class="card">
+      <div class="card-ttl">Top 10 สีขาย &middot; Nature Code Botanic Hair Color Serum</div>
+      <div class="card-sub">รวม 336 ชิ้น &middot; 18 สี &middot; แสดง 10 อันดับแรก</div>
+      <div class="cw" style="height:270px"><canvas id="cColor"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-ttl">ลูกค้าและ Samping</div>
+      <div class="card-sub">สัดส่วนลูกค้าใหม่/เก่า และ Samping 2 ประเภท</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start">
+        <div>
+          <div style="text-align:center;font-size:10.5px;color:var(--ink2);margin-bottom:6px;font-weight:600">ประเภทลูกค้า (680 คน)</div>
+          <div class="cw" style="height:195px"><canvas id="cCustType"></canvas></div>
+        </div>
+        <div>
+          <div style="text-align:center;font-size:10.5px;color:var(--ink2);margin-bottom:6px;font-weight:600">Samping (909 ซอง)</div>
+          <div class="cw" style="height:195px"><canvas id="cSamping"></canvas></div>
+        </div>
+      </div>
+      <div style="margin-top:18px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);margin-bottom:8px">ยอดขายแต่ละกลุ่มสินค้า</div>
+        <table style="width:100%;border-collapse:collapse;font-size:11.5px">
+          <tbody id="prodTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>สร้างจาก Summary Report Lolane TT Store 1&ndash;6 Jul 2026 &middot; วันทำงานรวมจาก ตารางเข้างาน P55 &middot; ร้านที่มีกิจกรรมจาก Summary BA5:BA54 &middot; อัพเดท 2 ก.ค. 2026</footer>
+
+<script>
+const P={
+  s1:'#2a78d6',s2:'#1baf7a',s3:'#eda100',s4:'#008300',s5:'#4a3aa7',
+  s6:'#e34948',surf:'#ffffff',ink2:'#898781',
+  line:'#e1e0d9',good:'#0ca30c',crit:'#e34948',warn:'#eda100'
+};
+Chart.defaults.font.family="system-ui,-apple-system,'Segoe UI',sans-serif";
+Chart.defaults.font.size=11;
+Chart.defaults.color=P.ink2;
+
+const stores=[
+  {s:'สยามวิชโก้',              rev:8946,  pcs:122, conv:43.75, newC:12,  oldC:23},
+  {s:'เจ้หมวย สนง.ใหญ่',        rev:3242,  pcs:54,  conv:53.80, newC:10,  oldC:25},
+  {s:'เจ้หมวย เทอมินอล',        rev:2979,  pcs:45,  conv:60.00, newC:10,  oldC:20},
+  {s:'เอส.อาร์. สาขา 1',        rev:3149,  pcs:43,  conv:61.54, newC:10,  oldC:30},
+  {s:'เอส.อาร์. สาขา 4',        rev:6382,  pcs:69,  conv:74.19, newC:48,  oldC:21},
+  {s:'วิน คอสเมติค',            rev:3943,  pcs:50,  conv:55.00, newC:18,  oldC:15},
+  {s:'ซีเอ็ม การ์ดธานินท์',      rev:2935,  pcs:45,  conv:63.64, newC:15,  oldC:20},
+  {s:'ซีเอ็ม มินิมอล',           rev:4463,  pcs:59,  conv:57.14, newC:25,  oldC:15},
+  {s:'ธนพิริยะ เชียงราย',        rev:2453,  pcs:23,  conv:28.75, newC:12,  oldC:11},
+  {s:'ยงสงวน อุบล',             rev:7545,  pcs:123, conv:100.0, newC:30,  oldC:40},
+  {s:'บิวตี้เซ็นเตอร์ บิ๊กซี',   rev:5272,  pcs:72,  conv:82.35, newC:40,  oldC:30},
+  {s:'บิวตี้เซ็นเตอร์ เจริญศรี', rev:8183,  pcs:94,  conv:56.82, newC:14,  oldC:36},
+  {s:'สหสินเทรดดิ้ง ขอนแก่น',   rev:4507,  pcs:58,  conv:63.64, newC:0,   oldC:0 },
+  {s:'โฆษิตสโตร์',              rev:6579,  pcs:77,  conv:84.62, newC:13,  oldC:42},
+  {s:'ห้างสหไทย',               rev:2402,  pcs:42,  conv:63.64, newC:13,  oldC:29},
+  {s:'ชุมพรโอเชี่ยน',            rev:1748,  pcs:22,  conv:36.67, newC:6,   oldC:5 },
+];
+
+const byRev=[...stores].sort((a,b)=>b.rev-a.rev);
+const byPcs=[...stores].sort((a,b)=>b.pcs-a.pcs);
+const byConv=[...stores].sort((a,b)=>b.conv-a.conv);
+
+function hBar(id,labels,data,colorFn,xFmt,xTickFmt){
+  return new Chart(document.getElementById(id),{
+    type:'bar',
+    data:{labels,datasets:[{data,backgroundColor:typeof colorFn==='string'?colorFn:data.map((_,i)=>colorFn(data[i],i)),borderRadius:4,barThickness:13}]},
+    options:{indexAxis:'y',animation:false,responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+xFmt(ctx.parsed.x)}}},
+      scales:{x:{grid:{color:P.line,drawBorder:false},ticks:{font:{size:10},callback:xTickFmt||(v=>v)}},
+              y:{grid:{display:false},ticks:{font:{size:10}}}}}
+  });
+}
+
+new Chart(document.getElementById('cProductMix'),{
+  type:'doughnut',
+  data:{
+    labels:['Natura Booster Treatment','Natura Daily Treatment','Natura Booster Leave On','Natura Daily Hair Serm','Nature Code Color Serum'],
+    datasets:[{data:[379,43,196,44,336],backgroundColor:[P.s1,P.s2,P.s3,P.s4,P.s5],borderColor:P.surf,borderWidth:2,hoverOffset:4}]
+  },
+  options:{animation:false,responsive:true,maintainAspectRatio:false,cutout:'62%',
+    plugins:{legend:{position:'bottom',labels:{font:{size:10.5},padding:10,boxWidth:12,boxHeight:12}},
+      tooltip:{callbacks:{label:ctx=>{const pct=((ctx.parsed/998)*100).toFixed(1);return ` ${ctx.parsed} ชิ้น (${pct}%)`;}}}}}
+});
+
+hBar('cRevenue',byRev.map(d=>d.s),byRev.map(d=>d.rev),P.s1,v=>'฿'+v.toLocaleString(),v=>'฿'+(v/1000).toFixed(0)+'K');
+hBar('cPieces',byPcs.map(d=>d.s),byPcs.map(d=>d.pcs),P.s2,v=>v+' ชิ้น');
+hBar('cConv',byConv.map(d=>d.s),byConv.map(d=>d.conv),v=>v>=80?P.good:v>=60?P.warn:P.crit,v=>v.toFixed(1)+'%',v=>v+'%');
+Chart.getChart('cConv').options.scales.x.max=105;
+Chart.getChart('cConv').update();
+
+const colorData=[
+  ['C2 น้ำตาลเข้ม',82],['C1 ดำธรรมชาติ',57],['C4 คาราเมล บราวน์',47],
+  ['C3 น้ำตาลธรรมชาติ',42],['C7 บราวน์ ชูการ์',23],['C8 พิสตาชิโอ',11],
+  ['C17 เบจ บราวน์',11],['C12 มิลค์ คาราเมล',10],['C16 เชอร์รี่ บราวน์',10],
+  ['C18 โกลเดน อัลมอนด์',10],
+];
+hBar('cColor',colorData.map(d=>d[0]),colorData.map(d=>d[1]),(_, i)=>`hsl(255,40%,${66-i*5}%)`,v=>v+' ชิ้น');
+
+new Chart(document.getElementById('cCustType'),{
+  type:'doughnut',
+  data:{labels:['ลูกค้าใหม่','ลูกค้าเก่า'],datasets:[{data:[289,391],backgroundColor:[P.s1,'#d4e4f9'],borderColor:P.surf,borderWidth:2}]},
+  options:{animation:false,responsive:true,maintainAspectRatio:false,cutout:'68%',
+    plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:7,boxWidth:10,boxHeight:10}},
+      tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed} คน`}}}}
+});
+
+new Chart(document.getElementById('cSamping'),{
+  type:'doughnut',
+  data:{labels:['ครีมบูทเตอร์ 20g.','ทรีทเม้น 25g.'],datasets:[{data:[446,463],backgroundColor:[P.s3,P.s2],borderColor:P.surf,borderWidth:2}]},
+  options:{animation:false,responsive:true,maintainAspectRatio:false,cutout:'68%',
+    plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:7,boxWidth:10,boxHeight:10}},
+      tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed} ซอง`}}}}
+});
+
+const prodRows=[
+  {label:'Natura Booster Treatment',pcs:379,color:P.s1},
+  {label:'Nature Code Color Serum', pcs:336,color:P.s5},
+  {label:'Natura Booster Leave On', pcs:196,color:P.s3},
+  {label:'Natura Daily Hair Serm',  pcs:44, color:P.s4},
+  {label:'Natura Daily Treatment',  pcs:43, color:P.s2},
+];
+const tbody=document.getElementById('prodTable');
+prodRows.forEach(r=>{
+  const pct=((r.pcs/998)*100).toFixed(1);
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td style="padding:5px 0;color:${r.color};font-size:8px">&#9632;</td><td style="padding:5px 4px;color:#3a3935">${r.label}</td><td style="padding:5px 0;text-align:right;font-weight:700;font-variant-numeric:tabular-nums">${r.pcs}</td><td style="padding:5px 0 5px 8px;text-align:right;color:#898781;min-width:40px">${pct}%</td>`;
+  tbody.appendChild(tr);
+  const btr=document.createElement('tr');
+  btr.innerHTML=`<td colspan="4" style="padding:0 0 6px"><div style="height:4px;background:var(--line);border-radius:2px"><div style="height:4px;width:${pct}%;background:${r.color};border-radius:2px"></div></div></td>`;
+  tbody.appendChild(btr);
+});
+</script>
+</body>
+</html>
